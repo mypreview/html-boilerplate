@@ -23,22 +23,28 @@ $ npm update
 # Build and minify both resources
 $ npm run build
 
-# Build and minify main.js file
+# Build and minify script.js file
 $ npm run build:js
 
-# Watch for changes in main.js file
+# Watch for changes in script.js file
 $ npm run watch:js
 
-# Build and minify main.scss file
+# Build and minify style.scss file
 $ npm run build:css
 
-# Watch for changes in main.scss file
+# Watch for changes in style.scss file
 $ npm run watch:css
 
-# Lint main.js file
+# Lint style.css file
+$ lint:css
+
+# Fix style.css file
+$ lint:css:fix
+
+# Lint script.js file
 $ lint:js
 
-# Fix main.js file
+# Fix script.js file
 $ lint:js:fix
 ```
 
