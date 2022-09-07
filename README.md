@@ -63,7 +63,7 @@ $ lint:js:fix
 │       ├── style.scss      # main (index) scss file
 │       └── variables.scss  # scss file for variables
 ├── index.html              # index file for web app
-└── package.json			# npm configuration file
+└── package.json            # npm configuration file
 ```
 
 ---
