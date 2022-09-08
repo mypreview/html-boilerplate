@@ -16,7 +16,7 @@
 	"scripts": {
 		"build": "npm run build:css && npm run build:js",
 		"build:css": "npx rimraf build/css/*.css && npm run lint:css && npx node-sass src/scss/style.scss build/css/style.min.css --output-style=compressed && npx postcss build/css/style.min.css --output build/css/style.min.css --no-map",
-		"build:js": "npx rimraf build/js/*.js && npm run lint:js && npx babel src/js/script.js --out-file build/js/script.min.js --no-comments --minified --presets=@babel/preset-env && terser --compress --mangle --output build/js/script.min.js -- build/js/script.min.js",
+		"build:js": "npx rimraf build/js/*.js && npm run format && npm run lint:js && npx babel src/js/script.js --out-file build/js/script.min.js --no-comments --minified --presets=@babel/preset-env && terser --compress --mangle --output build/js/script.min.js -- build/js/script.min.js",
 		"format": "prettier --ignore-path .eslintignore --write \"**/*.{js,jsx,json,ts,tsx}\"",
 		"lint:css": "npx stylelint src/scss/**/*.scss",
 		"lint:css:fix": "npx stylelint src/scss/**/*.scss --fix",
