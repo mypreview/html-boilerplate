@@ -2,7 +2,7 @@
 
 ![License](https://img.shields.io/github/license/mypreview/html-boilerplate)
 
-Simple boilerplate for building web app with [node-sass](https://github.com/sass/node-sass) and [@babel/cli](https://github.com/babel/babel/tree/master/packages/babel-cli).
+Simple boilerplate for building web app with [sass/dart-sass](https://www.npmjs.com/package/sass) and [@babel/cli](https://www.npmjs.com/package/babel-cli).
 
 ---
 

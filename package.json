@@ -2,7 +2,7 @@
 	"name": "@mypreview/html-boilerplate",
 	"version": "1.0.0",
 	"private": true,
-	"description": "Simple boilerplate for building web app with babel-cli and node-sass.",
+	"description": "Simple boilerplate for building web app with babel-cli and sass.",
 	"homepage": "https://github.com/mypreview/html-boilerplate#readme",
 	"bugs": {
 		"url": "https://github.com/mypreview/html-boilerplate/issues"
