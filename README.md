@@ -23,29 +23,35 @@ $ npm update
 # Build and minify both resources
 $ npm run build
 
+# Build and minify style.scss file
+$ npm run build:css
+
 # Build and minify script.js file
 $ npm run build:js
 
-# Watch for changes in script.js file
-$ npm run watch:js
+# Build resources and create a zip file for the project.
+$ npm run build:zip
 
-# Build and minify style.scss file
-$ npm run build:css
+# Enforces an opinionated consistent code format.
+$ npm run format
+
+# Lint style.css file
+$ npm run lint:css
+
+# Fix style.css file
+$ npm run lint:css:fix
+
+# Lint script.js file
+$ npm run lint:js
+
+# Fix script.js file
+$ npm run lint:js:fix
 
 # Watch for changes in style.scss file
 $ npm run watch:css
 
-# Lint style.css file
-$ lint:css
-
-# Fix style.css file
-$ lint:css:fix
-
-# Lint script.js file
-$ lint:js
-
-# Fix script.js file
-$ lint:js:fix
+# Watch for changes in script.js file
+$ npm run watch:js
 ```
 
 ## Structure
@@ -64,6 +70,19 @@ $ lint:js:fix
 │       └── variables.scss  # scss file for variables
 ├── index.html              # index file for web app
 └── package.json            # npm configuration file
+```
+
+## Zip-Archive
+In the case where you want to customize the files included in the `zip` file, you can modify the files field in the `package.json`.
+
+```json
+{
+	"files": [
+		"assets/**",
+		"build/**",
+		"index.html"
+	]
+}
 ```
 
 ---
