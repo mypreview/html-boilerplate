@@ -20,16 +20,16 @@
 	],
 	"scripts": {
 		"build": "npm run build:css && npm run build:js",
-		"build:css": "npx rimraf build/css/*.css && npm run lint:css && npx sass src/scss/style.scss build/css/style.min.css --style=compressed",
-		"build:js": "npx rimraf build/js/*.js && npm run format && npm run lint:js && npx babel src/js/script.js --out-file build/js/script.min.js --no-comments --minified --presets=@babel/preset-env && terser --compress --mangle --output build/js/script.min.js -- build/js/script.min.js",
+		"build:css": "rimraf build/css/* && npm run lint:css && sass src/scss/style.scss build/css/style.min.css --style=compressed --no-source-map",
+		"build:js": "rimraf build/js/* && npm run format && npm run lint:js && babel src/js/script.js --out-file build/js/script.min.js --no-comments --minified --presets=@babel/preset-env && terser --compress --mangle --output build/js/script.min.js -- build/js/script.min.js",
 		"build:zip": "node ./.plugin-zip.js",
 		"format": "prettier --ignore-path .eslintignore --write \"**/*.{html,js,jsx,json,ts,tsx}\"",
-		"lint:css": "npx stylelint src/scss/**/*.scss",
-		"lint:css:fix": "npx stylelint src/scss/**/*.scss --fix",
-		"lint:js": "npx eslint src/js/**/*.js",
-		"lint:js:fix": "npx eslint src/js/**/*.js --fix",
-		"watch:css": "npx sass src/scss/style.scss build/css/style.min.css --style=expanded --watch",
-		"watch:js": "npx babel src/js/script.js --out-file build/js/script.min.js --presets=@babel/preset-env --watch"
+		"lint:css": "stylelint src/scss/**/*.scss",
+		"lint:css:fix": "stylelint src/scss/**/*.scss --fix",
+		"lint:js": "eslint src/js/**/*.js",
+		"lint:js:fix": "eslint src/js/**/*.js --fix",
+		"watch:css": "sass src/scss/style.scss build/css/style.min.css --style=expanded --watch",
+		"watch:js": "babel src/js/script.js --out-file build/js/script.min.js --presets=@babel/preset-env --watch"
 	},
 	"devDependencies": {
 		"@babel/cli": "7.19.3",
@@ -37,7 +37,6 @@
 		"@babel/preset-env": "7.19.3",
 		"@wordpress/browserslist-config": "5.2.0",
 		"@wordpress/eslint-plugin": "13.2.0",
-		"@wordpress/npm-package-json-lint-config": "4.3.0",
 		"@wordpress/prettier-config": "2.1.0",
 		"@wordpress/stylelint-config": "21.1.0",
 		"adm-zip": "0.5.9",
