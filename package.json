@@ -13,10 +13,16 @@
 	},
 	"license": "GPL-3.0-or-later",
 	"author": "Mahdi Yazdani",
+	"files": [
+		"assets/**",
+		"build/**",
+		"index.html"
+	],
 	"scripts": {
 		"build": "npm run build:css && npm run build:js",
 		"build:css": "npx rimraf build/css/*.css && npm run lint:css && npx sass src/scss/style.scss build/css/style.min.css --style=compressed",
 		"build:js": "npx rimraf build/js/*.js && npm run format && npm run lint:js && npx babel src/js/script.js --out-file build/js/script.min.js --no-comments --minified --presets=@babel/preset-env && terser --compress --mangle --output build/js/script.min.js -- build/js/script.min.js",
+		"build:zip": "node ./.plugin-zip.js",
 		"format": "prettier --ignore-path .eslintignore --write \"**/*.{js,jsx,json,ts,tsx}\"",
 		"lint:css": "npx stylelint src/scss/**/*.scss",
 		"lint:css:fix": "npx stylelint src/scss/**/*.scss --fix",
@@ -26,19 +32,22 @@
 		"watch:js": "npx babel src/js/script.js --out-file build/js/script.min.js --presets=@babel/preset-env --watch"
 	},
 	"devDependencies": {
-		"@babel/cli": "7.18.10",
-		"@babel/core": "7.19.0",
-		"@babel/preset-env": "7.19.0",
-		"@wordpress/browserslist-config": "5.0.0",
-		"@wordpress/eslint-plugin": "13.0.0",
-		"@wordpress/npm-package-json-lint-config": "4.2.0",
-		"@wordpress/prettier-config": "2.0.0",
-		"@wordpress/stylelint-config": "21.0.0",
-		"eslint": "8.23.0",
+		"@babel/cli": "7.19.3",
+		"@babel/core": "7.19.3",
+		"@babel/preset-env": "7.19.3",
+		"@wordpress/browserslist-config": "5.2.0",
+		"@wordpress/eslint-plugin": "13.2.0",
+		"@wordpress/npm-package-json-lint-config": "4.3.0",
+		"@wordpress/prettier-config": "2.1.0",
+		"@wordpress/stylelint-config": "21.1.0",
+		"adm-zip": "0.5.9",
+		"eslint": "8.24.0",
+		"fast-glob": "3.2.12",
 		"prettier": "npm:wp-prettier@2.6.2",
+		"read-pkg-up": "7.0.1",
 		"rimraf": "3.0.2",
-		"sass": "1.54.9",
-		"stylelint": "14.11.0",
+		"sass": "1.55.0",
+		"stylelint": "14.13.0",
 		"terser": "5.15.0"
 	}
 }
