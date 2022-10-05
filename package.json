@@ -23,7 +23,7 @@
 		"build:css": "npx rimraf build/css/*.css && npm run lint:css && npx sass src/scss/style.scss build/css/style.min.css --style=compressed",
 		"build:js": "npx rimraf build/js/*.js && npm run format && npm run lint:js && npx babel src/js/script.js --out-file build/js/script.min.js --no-comments --minified --presets=@babel/preset-env && terser --compress --mangle --output build/js/script.min.js -- build/js/script.min.js",
 		"build:zip": "node ./.plugin-zip.js",
-		"format": "prettier --ignore-path .eslintignore --write \"./*.{html,js,jsx,json,ts,tsx}\"",
+		"format": "prettier --ignore-path .eslintignore --write \"**/*.{html,js,jsx,json,ts,tsx}\"",
 		"lint:css": "npx stylelint src/scss/**/*.scss",
 		"lint:css:fix": "npx stylelint src/scss/**/*.scss --fix",
 		"lint:js": "npx eslint src/js/**/*.js",
