@@ -1,1 +1,4 @@
-module.exports = require( '@wordpress/prettier-config' );
+module.exports = {
+	...require( '@wordpress/prettier-config' ),
+	printWidth: 160,
+};
