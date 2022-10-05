@@ -15,17 +15,14 @@ const { packageJson } = readPkgUp( {
 	cwd: realpathSync( process.cwd() ),
 } );
 const getPackageProp = ( prop ) => packageJson && packageJson[ prop ];
-const hasPackageProp = ( prop ) =>
-	packageJson && packageJson.hasOwnProperty( prop );
+const hasPackageProp = ( prop ) => packageJson && packageJson.hasOwnProperty( prop );
 const name = getPackageProp( 'name' );
 
 stdout.write( `Creating archive for \`${ name }\` project…\n\n` );
 const zip = new AdmZip();
 
 if ( hasPackageProp( 'files' ) ) {
-	stdout.write(
-		'Using the `files` field from `package.json` to detect files:\n\n'
-	);
+	stdout.write( 'Using the `files` field from `package.json` to detect files:\n\n' );
 	const files = glob( getPackageProp( 'files' ), {
 		caseSensitiveMatch: false,
 	} );
