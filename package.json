@@ -19,7 +19,7 @@
 		"index.html"
 	],
 	"scripts": {
-		"build": "cross-env NODE_ENV=production npm run build:css && npm run build:js",
+		"build": "cross-env BABEL_ENV=default NODE_ENV=production npm run build:css && npm run build:js",
 		"build:css": "rimraf build/css/* && npm run lint:css && sass src/scss/style.scss build/css/style.min.css --style=compressed --no-source-map",
 		"build:js": "rimraf build/js/* && npm run format && npm run lint:js && babel src/js/script.js --out-file build/js/script.min.js --no-comments --minified --presets=@babel/preset-env && terser --compress --mangle --output build/js/script.min.js -- build/js/script.min.js",
 		"build:zip": "node ./.plugin-zip.js",
