@@ -19,7 +19,7 @@
 		"index.html"
 	],
 	"scripts": {
-		"build": "npm run build:css && npm run build:js",
+		"build": "cross-env NODE_ENV=production npm run build:css && npm run build:js",
 		"build:css": "rimraf build/css/* && npm run lint:css && sass src/scss/style.scss build/css/style.min.css --style=compressed --no-source-map",
 		"build:js": "rimraf build/js/* && npm run format && npm run lint:js && babel src/js/script.js --out-file build/js/script.min.js --no-comments --minified --presets=@babel/preset-env && terser --compress --mangle --output build/js/script.min.js -- build/js/script.min.js",
 		"build:zip": "node ./.plugin-zip.js",
@@ -40,6 +40,7 @@
 		"@wordpress/prettier-config": "2.1.0",
 		"@wordpress/stylelint-config": "21.1.0",
 		"adm-zip": "0.5.9",
+		"cross-env": "7.0.3",
 		"eslint": "8.24.0",
 		"fast-glob": "3.2.12",
 		"prettier": "npm:wp-prettier@2.6.2",
