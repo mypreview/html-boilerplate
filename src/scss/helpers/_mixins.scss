@@ -1,0 +1,23 @@
+@mixin font-family($name) {
+	font-family: var(--font-family--#{$name});
+}
+
+@mixin font-weight($name) {
+	font-weight: var(--font-weight--#{$name});
+}
+
+@mixin background($name) {
+	background-color: var(--color--#{$name});
+}
+
+@mixin border-color($name) {
+	border-color: var(--color--#{$name});
+}
+
+@mixin color($name) {
+	color: var(--color--#{$name});
+}
+
+@mixin radius($name) {
+	border-radius: var(--radius--#{$name});
+}

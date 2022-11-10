@@ -1,0 +1,13 @@
+@each $position in inline, block {
+
+	@each $size in normal, small {
+		.padding-#{$position}-#{$size} {
+
+			@if $size == normal {
+				padding-#{$position}: 24px;
+			} @else {
+				padding-#{$position}: 12px;
+			}
+		}
+	}
+}

@@ -1,0 +1,32 @@
+hr {
+	margin: 0;
+	border-style: solid;
+	border-width: 1px 0 0;
+
+	@include border-color(border);
+}
+
+.list-style-line {
+
+	@include box(wrap, middle);
+}
+
+.list-style-none {
+	padding: 0;
+	margin: 0;
+
+	li {
+		list-style: none;
+	}
+}
+
+.badge {
+	margin: 0 12px 0 4px;
+	display: inline-block;
+	padding: 3px 5px;
+	font-size: 75%;
+	line-height: 1;
+
+	@include background(badge);
+	@include radius(medium);
+}

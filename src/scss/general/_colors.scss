@@ -1,0 +1,20 @@
+@each $color in dark, tile, primary {
+	.background-#{$color} {
+
+		@include background(#{$color});
+	}
+}
+
+@each $color in light, tile {
+	.color-#{$color} {
+
+		@include color(#{$color});
+	}
+}
+
+.has-color {
+
+	a {
+		color: inherit;
+	}
+}

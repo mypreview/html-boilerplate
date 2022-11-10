@@ -1,0 +1,36 @@
+.cookiebanner {
+	width: min(1140px, 88vw);
+	margin: 0 auto 24px;
+	gap: 12px;
+	border: 1px solid;
+
+	@include box(middle);
+	@include border-color(border);
+	@include radius(medium);
+
+	@include from-tablet {
+
+		&::before {
+			content: "";
+			background-image: url(../assets/images/cookie.svg);
+			background-repeat: no-repeat;
+			display: block;
+			background-size: 34px;
+
+			@include square(34px);
+		}
+	}
+
+
+	> span {
+		flex: 1;
+
+		@include from-tablet {
+			margin: 7px auto 7px 0;
+		}
+
+		@include mobile {
+			margin: 7px 12px;
+		}
+	}
+}

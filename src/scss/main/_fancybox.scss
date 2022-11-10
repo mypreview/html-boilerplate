@@ -1,0 +1,29 @@
+.fancybox-toolbar {
+	opacity: 1;
+	visibility: visible;
+}
+
+.fancybox-iframe {
+
+	@include from-desktop {
+
+		@include radius(medium);
+	}
+}
+
+.fancybox-content {
+
+	@include from-desktop {
+		max-height: 720px;
+		max-width: 840px;
+
+		@include radius(medium);
+	}
+}
+
+.fancybox-slide {
+
+	@include until-tablet {
+		padding: 0;
+	}
+}
