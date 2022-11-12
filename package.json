@@ -19,7 +19,6 @@
 		"build:html": "rimraf build/**/*.html && html-includes --src src/pages --dest build --minify",
 		"build:js": "rimraf build/js/* && npm run lint:js && babel src/js/script.js --out-file build/js/script.min.js && terser --compress --mangle --output build/js/script.min.js -- build/js/script.min.js",
 		"copy:assets": "rimraf build/assets && rsync -a src/assets build",
-		"copy:static": "rimraf build/*.{php,txt,xml} && rsync -a --existing src/*.{php,txt,xml} build",
 		"copy:changelog": "rimraf build/CHANGELOG.txt && rsync -a src/CHANGELOG.txt build",
 		"copy:resources": "npm run copy:assets && npm run copy:changelog",
 		"format": "prettier --ignore-path .eslintignore --write \"src/**/*.{js,json}\"",
