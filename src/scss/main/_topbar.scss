@@ -1,0 +1,8 @@
+.topbar {
+
+	&__wrapper {
+		gap: 10px;
+
+		@include box(wrap, middle);
+	}
+}

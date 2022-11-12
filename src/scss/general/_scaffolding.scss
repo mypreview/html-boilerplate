@@ -1,0 +1,29 @@
+.hide-visually {
+
+	@include hidden(visually);
+}
+
+.hide-on-mobile {
+
+	@include mobile {
+
+		@include hidden();
+	}
+}
+
+.content-wrapper {
+	max-width: 1140px;
+	margin-inline: auto;
+}
+
+.width-narrow {
+	max-width: 915px;
+}
+
+.width-medium {
+	max-width: 845px;
+}
+
+.width-small {
+	max-width: 590px;
+}

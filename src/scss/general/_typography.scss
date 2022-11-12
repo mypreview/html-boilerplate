@@ -1,0 +1,120 @@
+body {
+	font-size: 16px;
+	line-height: 1.5;
+	margin: 0;
+
+	@include color(darker);
+	@include background(background);
+	@include font-family(primary);
+}
+
+p {
+	margin-top: 0;
+}
+
+h1 {
+	line-height: 1;
+	margin: {
+		top: 0;
+		bottom: 24px;
+	}
+	font-size: clamp(55px, 3.5vw, 72px);
+
+	@include color(darker);
+	@include font-weight(normal);
+}
+
+.h2,
+h2 {
+	font-size: clamp(40px, 3.5vw, 56px);
+	line-height: 1.15;
+	margin: {
+		top: 0;
+		bottom: clamp(18px, 3.5vw, 24px);
+	}
+	letter-spacing: 0.02em;
+
+	@include font-weight(normal);
+}
+
+h3 {
+	font-size: 24px;
+	line-height: 1.25;
+	margin: {
+		top: 0;
+		bottom: 20px;
+	}
+	letter-spacing: 0.02em;
+
+	@include font-weight(bold);
+}
+
+a {
+	text-decoration: none;
+
+	@include color(primary);
+	@include transition(color, opacity);
+}
+
+h4,
+.lg-txt {
+	font-size: 24px;
+	line-height: 1.25;
+	margin: {
+		top: 0;
+		bottom: clamp(30px, 3.5vw, 48px);
+	}
+	font-weight: var(--bold);
+
+	@include font-weight(bold);
+}
+
+h5 {
+	font-size: 20px;
+	line-height: 1.5;
+	margin: {
+		top: 0;
+		bottom: 12px;
+	}
+
+	@include font-weight(bold);
+}
+
+small {
+	font-size: 14px;
+	margin-bottom: 24px;
+	letter-spacing: 1px;
+	display: block;
+}
+
+.title {
+	font-size: clamp(32px, 3.5vw, 40px);
+	margin-top: 6px;
+}
+
+.lead {
+	font-size: 20px;
+}
+
+p.bold + p {
+	font-size: 14px;
+}
+
+.small {
+	font-size: 13px;
+}
+
+.larger {
+	font-size: 72px;
+	line-height: 1.1;
+	letter-spacing: 0.02em;
+}
+
+.bold {
+
+	@include font-weight(bold);
+}
+
+.italic {
+	font-style: italic;
+}

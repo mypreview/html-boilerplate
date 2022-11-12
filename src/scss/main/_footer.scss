@@ -1,0 +1,16 @@
+.footer {
+
+	&__content {
+
+		@include box(space-between);
+		gap: 12px;
+
+		p {
+			margin-bottom: 5px;
+		}
+
+		@include until-tablet {
+			flex-direction: column-reverse;
+		}
+	}
+}

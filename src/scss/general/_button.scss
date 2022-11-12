@@ -1,0 +1,51 @@
+.button {
+	border: 1px solid;
+
+	@include box(inline);
+	@include font-weight(bold);
+	@include radius(medium);
+	@include transition(color, background-color, border-color);
+
+	&--medium {
+		padding: 5px 16px;
+	}
+
+	&--large {
+		padding: 11px 24px;
+	}
+
+	&--success {
+
+		@include color(tile);
+		@include background(secondary);
+		@include border-color(secondary);
+
+		&:hover {
+
+			@include background(secondary-alt);
+			@include border-color(secondary-alt);
+		}
+
+		&:focus {
+			box-shadow: 0 0 0 3px rgba(113, 176, 47, 0.5);
+		}
+	}
+
+	&--info {
+
+		@include color(primary);
+		@include background(tile);
+		@include border-color(border);
+
+		&:hover {
+
+			@include color(tile);
+			@include background(primary);
+			@include border-color(primary);
+		}
+
+		&:focus {
+			box-shadow: 0 0 0 3px rgba(150, 88, 138, 0.5);
+		}
+	}
+}

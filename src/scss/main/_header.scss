@@ -1,0 +1,28 @@
+.header {
+
+	@include sticky(top, 100%, wrap);
+
+	&__content {
+		gap: 10px;
+
+		@include box(space-between, middle);
+	}
+}
+
+.main-navigation {
+	margin-left: auto;
+
+	a {
+
+		@include box(inline, middle);
+
+		&:not(.button) {
+			padding: 8px;
+		}
+
+		&:focus,
+		&:hover {
+			opacity: 0.75;
+		}
+	}
+}

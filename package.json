@@ -12,42 +12,45 @@
 		"url": "git+https://github.com/mypreview/html-boilerplate.git"
 	},
 	"license": "GPL-3.0-or-later",
-	"author": "Mahdi Yazdani",
-	"files": [
-		"assets/**",
-		"build/**",
-		"index.html"
-	],
+	"author": "MyPreview",
 	"scripts": {
-		"build": "cross-env BABEL_ENV=default NODE_ENV=production npm run build:css && npm run build:js",
+		"build": "cross-env BABEL_ENV=default NODE_ENV=production npm run format && npm run build:css && npm run build:js && npm run build:html && npm run copy:resources",
 		"build:css": "rimraf build/css/* && npm run lint:css && sass src/scss/style.scss build/css/style.min.css --style=compressed --no-source-map",
-		"build:js": "rimraf build/js/* && npm run format && npm run lint:js && babel src/js/script.js --out-file build/js/script.min.js --no-comments --minified --presets=@babel/preset-env && terser --compress --mangle --output build/js/script.min.js -- build/js/script.min.js",
-		"build:zip": "node ./.plugin-zip.js",
-		"format": "prettier --ignore-path .eslintignore --write \"**/*.{html,js,jsx,json,ts,tsx}\"",
+		"build:html": "rimraf build/**/*.html && html-includes --src src/pages --dest build --minify",
+		"build:js": "rimraf build/js/* && npm run lint:js && babel src/js/script.js --out-file build/js/script.min.js && terser --compress --mangle --output build/js/script.min.js -- build/js/script.min.js",
+		"copy:assets": "rimraf build/assets && rsync -a src/assets build",
+		"copy:changelog": "rimraf build/CHANGELOG.txt && rsync -a src/CHANGELOG.txt build",
+		"copy:resources": "npm run copy:assets && npm run copy:changelog",
+		"format": "prettier --ignore-path .eslintignore --write \"src/**/*.{js,json}\"",
 		"lint:css": "stylelint src/scss/**/*.scss",
 		"lint:css:fix": "stylelint src/scss/**/*.scss --fix",
 		"lint:js": "eslint src/js/**/*.js",
 		"lint:js:fix": "eslint src/js/**/*.js --fix",
+		"watch": "npm run copy:resources && concurrently --kill-others \"npm run watch:css\" \"npm run watch:js\" \"npm run watch:html\"",
 		"watch:css": "sass src/scss/style.scss build/css/style.min.css --style=expanded --watch",
-		"watch:js": "babel src/js/script.js --out-file build/js/script.min.js --presets=@babel/preset-env --watch"
+		"watch:html": "rimraf build/**/*.html && html-includes --src src/pages --dest build --watch",
+		"watch:js": "babel src/js/script.js --out-file build/js/script.min.js --watch"
+	},
+	"dependencies": {
+		"@mypreview/unicorn-style-utils": "1.3.0"
 	},
 	"devDependencies": {
 		"@babel/cli": "7.19.3",
-		"@babel/core": "7.19.3",
-		"@babel/preset-env": "7.19.3",
-		"@wordpress/browserslist-config": "5.2.0",
-		"@wordpress/eslint-plugin": "13.2.0",
-		"@wordpress/prettier-config": "2.1.0",
-		"@wordpress/stylelint-config": "21.1.0",
-		"adm-zip": "0.5.9",
+		"@babel/core": "7.20.2",
+		"@babel/preset-env": "7.20.2",
+		"@wordpress/browserslist-config": "5.4.0",
+		"@wordpress/eslint-plugin": "13.5.0",
+		"@wordpress/prettier-config": "2.4.0",
+		"@wordpress/stylelint-config": "21.4.0",
+		"concurrently": "7.5.0",
 		"cross-env": "7.0.3",
-		"eslint": "8.24.0",
-		"fast-glob": "3.2.12",
+		"eslint": "8.27.0",
+		"html-includes": "4.4.1",
 		"prettier": "npm:wp-prettier@2.6.2",
-		"read-pkg-up": "7.0.1",
 		"rimraf": "3.0.2",
-		"sass": "1.55.0",
-		"stylelint": "14.13.0",
-		"terser": "5.15.0"
+		"sass": "1.56.1",
+		"sass-loader": "13.2.0",
+		"stylelint": "14.14.1",
+		"terser": "5.15.1"
 	}
 }

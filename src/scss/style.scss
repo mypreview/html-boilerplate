@@ -1,31 +1,10 @@
 @charset "utf-8";
+@import "../../node_modules/@mypreview/unicorn-style-utils/src/mixins";
+@import "../../node_modules/@mypreview/unicorn-style-utils/src/base";
+@import "../../node_modules/@mypreview/unicorn-style-utils/src/placeholder/columns";
+@import "../../node_modules/@mypreview/unicorn-style-utils/src/placeholder/text-align";
+@import "../../node_modules/@mypreview/unicorn-style-utils/src/placeholder/spacing";
 @import "variables";
-@import "functions";
-
-html {
-
-	& > body {
-		$primary-color: color("primary");
-
-		&.to-be-removed-by-purgecss {
-			font-size: 2rem;
-		}
-
-		form {
-			padding: 0.5rem;
-		}
-
-		*::placeholder {
-			color: $primary-color;
-		}
-
-		button {
-			$padding: 3px;
-
-			background-color: $primary-color;
-			color: color("light");
-			border: none;
-			padding: $padding $padding * 2;
-		}
-	}
-}
+@import "helpers";
+@import "general";
+@import "main";

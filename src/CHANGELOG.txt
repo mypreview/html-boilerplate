@@ -1,0 +1,3 @@
+=== Plugin name (PRO) ===
+= 20XX.XX.XX - Version 1.0.0 =
+* Initial release.
